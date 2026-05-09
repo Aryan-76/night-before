@@ -1,0 +1,63 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Student profile using the platform",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "survivalScore": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Note": {
+      "title": "Study Material",
+      "description": "Uploaded notes and PYQs",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "subject": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "fileUrl": { "type": "string" },
+        "type": { "type": "string", "enum": ["Note", "PYQ", "Diagram"] },
+        "views": { "type": "integer" },
+        "likes": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "ownerId", "fileUrl"]
+    },
+    "Discussion": {
+      "title": "Community Tip",
+      "description": "Survival tips shared by students",
+      "type": "object",
+      "properties": {
+        "content": { "type": "string" },
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "upvotes": { "type": "integer" },
+        "downvotes": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["content", "authorId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/notes/{noteId}": {
+      "schema": "Note",
+      "description": "Shared study materials"
+    },
+    "/discussions/{discussionId}": {
+      "schema": "Discussion",
+      "description": "Community survival tips"
+    }
+  }
+}

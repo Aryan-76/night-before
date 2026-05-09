@@ -1,0 +1,14 @@
+{
+  "name": "NIGHTBEFORE",
+  "description": "The ultimate academic survival platform for students who start studying one night before the exam. AI-powered panic plans, pass probability analysis, and emergency study tools.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "AI-powered study plans",
+    "Pass probability analysis",
+    "Academic survival tools",
+    "Community resource sharing"
+  ]
+}
